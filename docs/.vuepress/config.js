@@ -3,7 +3,7 @@ module.exports = {
   title: '前端学习',
   // 网页描述
   description: 'welcome to my site !',
-  base: './',
+  base: '/vuepress-blog/',
   head: [
     // 页面icon
     ['link', { rel: 'icon', href: '/icon.png' }]
