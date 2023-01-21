@@ -3,7 +3,8 @@
     "start": "npm run docs:dev",
     "build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "deploy": "git subtree push --prefix=docs origin gh-pages "
   },
   "devDependencies": {
     "vuepress": "^1.9.7"
