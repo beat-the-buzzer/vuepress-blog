@@ -4,7 +4,7 @@
     "build": "vuepress build docs",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "deploy": "git subtree push --prefix=docs origin gh-pages "
+    "deploy": "git subtree push --prefix=docs/.vuepress/dist origin gh-pages "
   },
   "devDependencies": {
     "vuepress": "^1.9.7"
