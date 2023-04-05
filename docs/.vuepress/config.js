@@ -30,6 +30,12 @@ module.exports = {
     // 导航
     nav: [
       { text: '直面JavaScript中的30个疑难杂症',link: '/interview/'},
+      { text: '前端问题汇总', items: [
+        { text: '移动端', link: '/problems/h5'}, 
+        { text: 'PC端', link: '/problems/pc'},
+        { text: '其他', link: '/problems/other'}
+      ]
+    },
       { text: 'JavaScript书籍', items: [
           { text: '你不知道的JavaScript(上)', link: '/books/你不知道的javascript上'}, 
           { text: '你不知道的JavaScript(中)', link: '/books/你不知道的javascript中'},
