@@ -1,1 +1,61 @@
 # Vue
+
+## MVVM 是什么？
+
+MVVM，即 Model–View–ViewModel，是一种软件架构模式。
+
+ - Model
+即模型，是指代表真实状态内容的领域模型（面向对象），或指代表内容的数据访问层（以数据为中心）。
+
+ - View
+即视图，是用户在屏幕上看到的结构、布局和外观（UI）。
+
+- ViewModel
+即视图模型，是暴露公共属性和命令的视图的抽象。用于把 Model 和 View 关联起来。ViewModel 负责把 Model 的数据同步到 View 显示出来，还负责把 View 的修改同步回 Model 。
+
+在 MVVM 架构下，View 和 Model 之间并没有直接的联系，而是通过 ViewModel 进行交互，Model 和 ViewModel 之间的交互是双向的，View 数据的变化会同步到 Model 中，而 Model 数据的变化也会立即反应到 View 上。
+
+## Vue 响应式系统的原理是什么？
+
+Vue 实现响应式主要是采用数据劫持结合发布者-订阅者模式的方式。
+
+ - Observer：对数据对象的所有属性进行监听，当把一个普通对象传给 Vue 实例的 data 选项时，Observer 将遍历它的所有属性，并为其添加 getter 和 setter。getter 将收集此属性所有的订阅者，setter 将在属性发生变动的时候，重新为此属性赋值，并通知订阅者调用其对应的更新函数。
+
+ - Compiler：模板编译器。它的作用是对每个元素节点的指令 v- 和模板语法 {{}} 进行扫描，替换对应的真实数据，或绑定相应的事件函数。
+
+ - Watcher：作为连接 Observer 和 Compiler 的桥梁，能够订阅并收到每个属性变动的通知，然后执行相应的回调函数。Compiler 在编译时通过 Watcher 绑定对应的数据更新回调函数，Observer 在监听到数据变化时执行此回调。在 Observer 中，Watcher 就是订阅者，在 Compiler 中，Watcher 就是发布者。
+
+ ## Vue父子组件的生命周期有哪些
+
+ ## Vue组件之间如何传值
+
+ ## Vue-Router hash模式和history模式分别是什么原理？
+
+ ## Vue3相比Vue2，做了哪些提升
+
+1. Vue2的Vue是一个构造函数，Vue3是输出了很多函数，对于全局api，比如nextTick，Vue2会挂在实例上，而Vue3是需要的时候再去引用；
+这种设计方式更加方便`tree shaking`。
+没有用到的函数不会参与打包，可以减小包的体积，并且提升打包速度；
+
+2. Vue3推荐使用组合式Api，可以把相关联的逻辑写在一起，就像Vue文件一样，把一个小模块的html/css/js都整合在一起；
+而Vue2的data和methods在代码层面看不出关联关系。
+
+3. 响应式原理的变化：
+
+Vue2是使用defineProperty去遍历对象的属性，对数据进行劫持，然后通过发布订阅模式，去维护视图和UI的关系；
+Vue3使用proxy进行代理，相当于直接去操作数据，因此不存在遍历属性的操作，性能会更高。
+
+Vue2对数组方法的重写；
+Vue2对对象新增属性的实时更新；
+这些问题都在Vue3中被解决了；
+
+因此Vue3的兼容性，完全抛弃了不支持“proxy”的浏览器；
+
+4. Vue3封装hooks，取代vue2中的mixin，提升代码的可维护性、解决命名冲突等等
+
+5. 多根节点、teleport传送、createReanderer自定义渲染器
+
+6. 虚拟DOM新增静态标记，diff计算时忽略
+
+7. 更好地支持TS
+
